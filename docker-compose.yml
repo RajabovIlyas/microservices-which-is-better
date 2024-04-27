@@ -14,6 +14,8 @@ services:
       target: development
     ports:
       - 3000:3000
+    networks:
+      - redis-microservices-network
 
 
   task:
@@ -21,8 +23,22 @@ services:
     env_file:
       - .env
     build:
-
       context: .
       args:
         APP: task
       target: development
+    networks:
+      - redis-microservices-network
+
+  redis:
+    container_name: redis-microservice
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+        - redis-microservices-network
+    restart: always
+
+networks:
+  redis-microservices-network:
+    driver: bridge

@@ -40,3 +40,10 @@ Start servers
 | Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
 
 
+## Redis
+
+| Stat           | Avg      | Stdev    | Max      |
+|----------------|----------|----------|----------|
+| Latency        | 4.49 ms  | 2.77 ms  | 47 ms    |
+| Req/Sec        | 2,011.2  | 489.59   | 1,084    |
+| Bytes/Sec      | 563 kB   | 137 kB   | 304 kB   |

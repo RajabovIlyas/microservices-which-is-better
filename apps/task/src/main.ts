@@ -1,14 +1,14 @@
 import { NestFactory } from '@nestjs/core';
-import { Transport } from '@nestjs/microservices';
 import { TaskModule } from './task.module';
 import { Logger } from '@nestjs/common';
+import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.REDIS,
     options: {
-      host: 'task',
-      port: 3001,
+      host: 'redis',
+      port: 6379,
     },
   });
   await app.listen();
