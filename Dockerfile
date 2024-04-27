@@ -10,6 +10,9 @@ RUN corepack enable
 FROM base AS development
 
 ARG APP
+
+ENV APP ${APP}
+
 ARG NODE_ENV=development
 
 ENV NODE_ENV=${NODE_ENV}
@@ -22,7 +25,7 @@ RUN pnpm install
 
 COPY . .
 
-CMD pnpm run start:dev ${APP}
+CMD pnpm start:dev ${APP}
 
 
 # production stage

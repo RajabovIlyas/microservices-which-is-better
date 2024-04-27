@@ -29,3 +29,14 @@ Start servers
 ## Authors
 
 - [Raj Ilyas](https://github.com/rajabovilyas)
+
+
+## TCP
+
+| Stat           | Avg      | Stdev    | Max      |
+|----------------|----------|----------|----------|
+| Latency        | 2.67 ms  | 5.58 ms  | 241 ms   |
+| Req/Sec        | 3,158.28 | 858.86   | 1,213    |
+| Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
+
+

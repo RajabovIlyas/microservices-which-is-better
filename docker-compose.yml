@@ -3,27 +3,26 @@ version: '3.8'
 services:
   gateway:
     container_name: gateway
+    environment:
+      TASK_HOST: task
     env_file:
       - .env
     build:
       context: .
-      dockerfile: Dockerfile
-      target: development
       args:
-        - APP=gateway
-    restart: always
+        APP: gateway
+      target: development
     ports:
       - 3000:3000
+
+
   task:
     container_name: task
     env_file:
       - .env
     build:
+
       context: .
-      dockerfile: Dockerfile
-      target: development
       args:
-        - APP=task
-    restart: always
-    ports:
-      - 3001:3000
+        APP: task
+      target: development
