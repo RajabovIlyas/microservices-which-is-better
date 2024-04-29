@@ -30,3 +30,10 @@ services:
       target: development
     volumes:
       - ./node_modules:/app/node_modules
+
+  rabbitmq-broker:
+    container_name: rabbitmq-broker
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"

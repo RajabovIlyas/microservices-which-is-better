@@ -8,10 +8,13 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ClientsModule.register([
       {
         name: 'TASK',
-        transport: Transport.TCP,
+        transport: Transport.RMQ,
         options: {
-          host: process.env.TASK_HOST || 'task',
-          port: 3001,
+          urls: ['amqp://rabbitmq-broker:5672'],
+          queue: 'cats_queue',
+          queueOptions: {
+            durable: false,
+          },
         },
       },
     ]),

@@ -5,10 +5,13 @@ import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.RMQ,
     options: {
-      host: 'task',
-      port: 3001,
+      urls: ['amqp://rabbitmq-broker:5672'],
+      queue: 'cats_queue',
+      queueOptions: {
+        durable: false,
+      },
     },
   });
   await app.listen();

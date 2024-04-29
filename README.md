@@ -40,3 +40,10 @@ Start servers
 | Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
 
 
+## RabbitMQ
+
+| Stat           | Avg      | Stdev    | Max    |
+|----------------|----------|----------|--------|
+| Latency        | 5.47 ms  | 1.93 ms  | 27 ms  |
+| Req/Sec        | 1,676.5  | 159.47   | 1,311  |
+| Bytes/Sec      | 469 kB   | 44.7 kB  | 367 kB |
