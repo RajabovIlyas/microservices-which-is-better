@@ -30,3 +30,12 @@ services:
       target: development
     volumes:
       - ./node_modules:/app/node_modules
+
+  nats-broker:
+    container_name: nats-broker
+    entrypoint: '/nats-server -c nats-server.conf -DV'
+    image: nats
+    ports:
+      - '4222:4222'
+      - '6222:6222'
+      - '8222:8222'

@@ -5,10 +5,9 @@ import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.NATS,
     options: {
-      host: 'task',
-      port: 3001,
+      servers: ['nats://nats-broker:4222'],
     },
   });
   await app.listen();

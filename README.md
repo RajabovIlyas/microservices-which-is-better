@@ -39,4 +39,10 @@ Start servers
 | Req/Sec        | 3,158.28 | 858.86   | 1,213    |
 | Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
 
+## NATS
 
+| Stat           | Avg      | Stdev    | Max     |
+|----------------|----------|----------|---------|
+| Latency        | 1.63 ms  | 1.97 ms  | 96 ms   |
+| Req/Sec        | 461.9    | 66.88    | 341     |
+| Bytes/Sec      | 129 kB   | 18.7 kB  | 95.5 kB |
