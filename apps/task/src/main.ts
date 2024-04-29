@@ -5,10 +5,9 @@ import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.MQTT,
     options: {
-      host: 'task',
-      port: 3001,
+      url: 'mqtt://mqtt-broker:1883',
     },
   });
   await app.listen();

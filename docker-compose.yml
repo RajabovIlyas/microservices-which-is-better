@@ -14,6 +14,8 @@ services:
       target: development
     ports:
       - 3000:3000
+    networks:
+      - mqtttest
 
 
   task:
@@ -21,8 +23,28 @@ services:
     env_file:
       - .env
     build:
-
       context: .
       args:
         APP: task
       target: development
+    networks:
+      - mqtttest
+
+  mqtt-broker:
+    image: eclipse-mosquitto
+    container_name: mqtt-broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - mqtttest
+    volumes:
+      - ./mosquitto:/etc/mosquitto
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+networks:
+  mqtttest:
+    name: mqtttest
+volumes:
+  data: ~

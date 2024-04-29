@@ -8,10 +8,9 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ClientsModule.register([
       {
         name: 'TASK',
-        transport: Transport.TCP,
+        transport: Transport.MQTT,
         options: {
-          host: process.env.TASK_HOST || 'task',
-          port: 3001,
+          url: 'mqtt://mqtt-broker:1883',
         },
       },
     ]),
