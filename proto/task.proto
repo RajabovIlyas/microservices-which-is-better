@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package task;
+
+message GetTaskRequest {
+  string id = 1;
+}
+
+message Task {
+  string message = 1;
+}
+
+service TaskService {
+  rpc getTask(GetTaskRequest) returns (Task) {}
+}

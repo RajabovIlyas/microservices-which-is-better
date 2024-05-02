@@ -2,13 +2,15 @@ import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
 import { TaskModule } from './task.module';
 import { Logger } from '@nestjs/common';
+import * as path from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.GRPC,
     options: {
-      host: 'task',
-      port: 3001,
+      url: 'task-service:50052',
+      package: 'task',
+      protoPath: path.join(__dirname, '../../../proto/task.proto'),
     },
   });
   await app.listen();

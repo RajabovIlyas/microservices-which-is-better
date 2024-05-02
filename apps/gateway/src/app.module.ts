@@ -2,16 +2,18 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import * as path from 'path';
 
 @Module({
   imports: [
     ClientsModule.register([
       {
         name: 'TASK',
-        transport: Transport.TCP,
+        transport: Transport.GRPC,
         options: {
-          host: process.env.TASK_HOST || 'task',
-          port: 3001,
+          url: 'task-service:50052',
+          package: 'task',
+          protoPath: path.join(__dirname, '../../../proto/task.proto'),
         },
       },
     ]),

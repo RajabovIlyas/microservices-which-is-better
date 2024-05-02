@@ -7,6 +7,8 @@ services:
       TASK_HOST: task
     env_file:
       - .env
+    depends_on:
+      - task
     build:
       context: .
       args:
@@ -20,6 +22,7 @@ services:
 
   task:
     container_name: task
+    hostname: task-service
     env_file:
       - .env
     build:

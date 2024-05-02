@@ -40,3 +40,10 @@ Start servers
 | Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
 
 
+## gRPC
+
+| Stat           | Avg       | Stdev    | Max      |
+|----------------|-----------|----------|----------|
+| Latency        | 4.45 ms   | 4.19 ms  | 165 ms   |
+| Req/Sec        | 2,018.5   | 440.78   | 1,394    |
+| Bytes/Sec      | 571 kB    | 125 kB   | 395 kB   |
