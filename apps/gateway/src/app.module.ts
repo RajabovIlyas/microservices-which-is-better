@@ -8,10 +8,15 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ClientsModule.register([
       {
         name: 'TASK',
-        transport: Transport.TCP,
+        transport: Transport.KAFKA,
         options: {
-          host: process.env.TASK_HOST || 'task',
-          port: 3001,
+          client: {
+            clientId: 'task',
+            brokers: ['docker.kafka.io:9092'],
+          },
+          consumer: {
+            groupId: `task-consumer`,
+          },
         },
       },
     ]),

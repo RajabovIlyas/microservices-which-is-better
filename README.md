@@ -33,10 +33,17 @@ Start servers
 
 ## TCP
 
-| Stat           | Avg      | Stdev    | Max      |
-|----------------|----------|----------|----------|
-| Latency        | 2.67 ms  | 5.58 ms  | 241 ms   |
-| Req/Sec        | 3,158.28 | 858.86   | 1,213    |
-| Bytes/Sec      | 884 kB   | 241 kB   | 340 kB   |
+| Stat           | Avg      | Stdev    | Max    | Min    |
+|----------------|----------|----------|--------|--------|
+| Latency        | 2.67 ms  | 5.58 ms  | 241 ms |        |
+| Req/Sec        | 3,158.28 | 858.86   |        | 1,213  |
+| Bytes/Sec      | 884 kB   | 241 kB   |        | 340 kB |
 
 
+## Kafka
+
+| Stat           | Avg      | Stdev     | Max     | Min     |
+|----------------|----------|-----------|---------|---------|
+| Latency        | 14.71 ms | 5.85 ms   | 58 ms   |         |
+| Req/Sec        | 658.4    | 31.28     |         | 605     |
+| Bytes/Sec      | 184 kB   | 8.76 kB   |         | 169 kB  |

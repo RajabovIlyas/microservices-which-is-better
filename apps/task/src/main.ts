@@ -5,13 +5,17 @@ import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(TaskModule, {
-    transport: Transport.TCP,
+    transport: Transport.KAFKA,
     options: {
-      host: 'task',
-      port: 3001,
+      client: {
+        brokers: ['docker.kafka.io:9092'],
+      },
+      consumer: {
+        groupId: `task-consumer`,
+      },
     },
   });
   await app.listen();
-  Logger.log(`🚀 Microservice Task is running`);
+  Logger.log(`🚀 Microservice Task is running: docker.kafka.io:9092`);
 }
 bootstrap();
